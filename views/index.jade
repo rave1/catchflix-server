@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div.p-5.container#container
+    div.row
+      div.code.col-6.col-md-4
+        h1
+          strong Catchflix
+        img#token(src="#{img}", alt="Token QR Code")
+      div.content.col-12.col-md-8.mt-md-4
+        h2 What the hell is that?
+        p.
+          This is a script that makes you a possibility to log in to your Netflix account without a need to enter your password.
+          Download the Catchflix app, open Netflix app, go to My account, choose Catchflix and scan the code from this site.
+        h2 Will my browser work with Netflix?
+        if compatibility.html5 === undefined
+          p.alert.alert-warning This browser probably does not support HTML5 video playing on Netflix
+        else if compatibility.html5 !== undefined && compatibility.html5 !== 4096
+          p.alert.alert-success.bd-callout.bd-callout-success This browser probably supports HTML5 video playing in #{compatibility.html5}p on Netflix
+        else if compatibility.html5 !== undefined && compatibility.html5 === 4096
+          p.alert.alert-success This browser probably supports HTML5 video playing in 4K on Netflix
+        if compatibility.silverlight5 === true
+          p.alert.alert-success This browser probably supports Silverlight 5 video playing on Netflix
+        if compatibility.silverlight5 !== true
+          p.alert.alert-warning This browser probably does not support Silverlight 5 video playing on Netflix
+        if compatibility.silverlight4 === true
+          p.alert.alert-success This browser probably supports Silverlight 4 video playing on Netflix
+        if compatibility.silverlight4 !== true
+          p.alert.alert-warning This browser probably does not support Silverlight 4 video playing on Netflix
+
+
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
+  script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js", integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN", crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js", integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", crossorigin="anonymous")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", crossorigin="anonymous")
+  link(rel='stylesheet', href='/css/style.css')
