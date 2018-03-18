@@ -156,7 +156,7 @@ function checkCompatibility(useragent) {
       } else {
           comp = {};
       }
-  } else if (agent.os === 'chromeos') {
+  } else if (agent.chromeos) {
       comp = {'html5': 1080};
   } else if (agent.linux & agent.chrome || agent.linux & agent.firefox) {
       comp = {'html5': 720};
